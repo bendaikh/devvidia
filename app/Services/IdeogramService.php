@@ -69,7 +69,7 @@ class IdeogramService
      */
     protected function buildImagePrompt($projectTitle)
     {
-        return "Professional software mockup showcasing '{$projectTitle}'. Modern UI/UX design displayed on multiple devices (laptop and mobile phone). High-quality, clean design with a tech-focused aesthetic. Blue and white color scheme. Realistic device mockups. Professional business presentation style. 8K quality, photorealistic.";
+        return "Professional realistic image representing '{$projectTitle}'. Show real-world objects, items, and elements directly related to this topic. The image should immediately communicate what the system is about through visual context and relevant imagery. High-quality photography style with natural lighting. Professional, clean composition. Include recognizable objects and scenes that match the theme. 8K quality, photorealistic.";
     }
 
     /**
@@ -79,15 +79,15 @@ class IdeogramService
     protected function buildEnhancedImagePrompt($projectTitle)
     {
         $variations = [
-            "Premium luxury UI design for '{$projectTitle}' application. Stunning dark mode interface with vibrant gradient colors, glassmorphism effects, modern card layouts, and sophisticated visual hierarchy. Displayed on MacBook Pro and iPhone mockups with dramatic studio lighting. Award-winning interface design. 8K quality, ultra realistic.",
+            "Professional high-quality photograph showcasing '{$projectTitle}' concept. Real-world objects, tools, and items directly related to this business or system. Natural scene with professional lighting and composition. Show elements that instantly communicate the purpose - for example, food items for restaurant systems, medical equipment for healthcare, books for education, etc. Photorealistic, 8K quality, magazine-style photography.",
             
-            "Futuristic innovative interface for '{$projectTitle}'. Bright airy layout with bold typography, vibrant illustrations, smooth color transitions, 3D elements, and delightful UX details. Professional device mockups with soft shadows and ambient lighting. Modern, user-centric design. Photorealistic, high-end quality.",
+            "Premium business photography representing '{$projectTitle}'. Realistic scene featuring relevant products, tools, workspace, or environment. Professional studio lighting with natural colors. Include recognizable objects and context that immediately tell what the system is about. High-end commercial photography style. Ultra realistic, 8K quality.",
             
-            "Elite high-end dashboard for '{$projectTitle}'. Immersive interface with data visualizations, charts, elegant spacing, premium purple and blue gradient palette, refined micro-interactions. Sleek laptop and mobile mockups with studio presentation. Sophisticated enterprise-grade design. 8K photorealistic render.",
+            "Modern lifestyle photography for '{$projectTitle}'. Show actual items, products, or scenes related to this industry or service. Clean professional composition with shallow depth of field. Natural lighting highlighting key relevant elements. Photojournalistic style that tells the story visually. Photorealistic, ultra HD quality.",
             
-            "Creative stunning UI for '{$projectTitle}' app. Colorful gradient background, modern minimalist interface, smooth animations representation, floating cards, beautiful icons, contemporary typography. Multiple device mockups (desktop, tablet, mobile) with professional lighting. Next-generation design. Ultra HD quality.",
+            "Professional editorial photograph illustrating '{$projectTitle}'. Real objects and authentic setting that represent this system's purpose. Include industry-specific items and context clues. Natural professional lighting with rich colors. Magazine cover quality composition. 8K photorealistic render.",
             
-            "Professional sleek interface for '{$projectTitle}'. Clean white background with vibrant accent colors, clear navigation, intuitive layout, modern components, subtle shadows and depth. Realistic device mockups with perfect lighting. Business-focused, premium quality design. 8K photorealistic.",
+            "High-end commercial photography for '{$projectTitle}'. Realistic scene with relevant props, products, and environmental context. Professional lighting setup showcasing key elements that define this system. Natural authentic representation with premium quality. Award-winning photography. Ultra realistic, 8K quality.",
         ];
 
         // Randomly select a variation for different results each time
