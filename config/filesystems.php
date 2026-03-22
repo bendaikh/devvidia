@@ -47,6 +47,16 @@ return [
             'report' => false,
         ],
 
+        // Alternative disk for direct public storage (no symlink needed)
+        'public_direct' => [
+            'driver' => 'local',
+            'root' => public_path('storage'),
+            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
