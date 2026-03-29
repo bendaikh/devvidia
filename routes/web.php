@@ -16,6 +16,7 @@ Route::post('/contact', [LandingController::class, 'storeContact'])->name('conta
 // Landing Pages
 Route::prefix('landing')->name('landing.')->group(function () {
     Route::get('/systems', [LandingPageController::class, 'systems'])->name('systems');
+    Route::get('/{slug}', [LandingPageController::class, 'show'])->name('show');
     Route::post('/submit-lead', [LandingPageController::class, 'submitLead'])->name('submit-lead');
 });
 

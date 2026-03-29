@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
 {
-    public function systems()
+    public function show($slug)
     {
-        $landingPage = LandingPage::where('slug', 'systems')->firstOrFail();
+        $landingPage = LandingPage::where('slug', $slug)->firstOrFail();
         
         if (!$landingPage->is_active) {
             abort(404);
@@ -22,6 +22,11 @@ class LandingPageController extends Controller
         $whatsappPhone = ApiSetting::get('whatsapp_phone') ?? '+237123456789';
         
         return view('landing-pages.' . $landingPage->template, compact('whatsappPhone', 'landingPage'));
+    }
+
+    public function systems()
+    {
+        return $this->show('systems');
     }
 
     public function submitLead(Request $request)
