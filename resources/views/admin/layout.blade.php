@@ -250,6 +250,21 @@
             color: white;
         }
         
+        .badge-qualified {
+            background: #9b59b6;
+            color: white;
+        }
+        
+        .badge-converted {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .badge-lost {
+            background: #e74c3c;
+            color: white;
+        }
+        
         .badge-completed {
             background: #27ae60;
             color: white;
@@ -275,6 +290,8 @@
                 <li><a href="{{ route('admin.services.index') }}" class="{{ request()->routeIs('admin.services.*') ? 'active' : '' }}">Services</a></li>
                 <li><a href="{{ route('admin.projects.index') }}" class="{{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">Projects</a></li>
                 <li><a href="{{ route('admin.contacts.index') }}" class="{{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">Contact Submissions</a></li>
+                <li><a href="{{ route('admin.leads.index') }}" class="{{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">Lead Submissions</a></li>
+                <li><a href="{{ route('admin.landing-systems.index') }}" class="{{ request()->routeIs('admin.landing-systems.*') ? 'active' : '' }}">Landing Systems</a></li>
                 <li><a href="{{ route('admin.whatsapp-settings.index') }}" class="{{ request()->routeIs('admin.whatsapp-settings.*') ? 'active' : '' }}">WhatsApp Settings</a></li>
                 <li><a href="{{ route('admin.api-settings.index') }}" class="{{ request()->routeIs('admin.api-settings.*') ? 'active' : '' }}">API Integration</a></li>
             </ul>
