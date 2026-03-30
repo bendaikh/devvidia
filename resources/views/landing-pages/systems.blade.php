@@ -165,6 +165,7 @@
             gap: 3rem;
             margin: 2rem 0;
             flex-wrap: wrap;
+            padding: 0 0.5rem;
         }
         
         .feature-item {
@@ -378,13 +379,16 @@
             }
             
             .features-list {
-                gap: 0.75rem;
-                flex-wrap: nowrap;
+                gap: 1rem;
+                flex-wrap: wrap;
+                margin: 1.5rem 0;
             }
             
             .feature-item {
                 padding: 0.5rem;
                 gap: 0.5rem;
+                flex: 1 1 auto;
+                min-width: 0;
             }
             
             .feature-icon {
@@ -392,7 +396,9 @@
             }
             
             .feature-text {
-                font-size: 0.7rem;
+                font-size: 0.8rem;
+                white-space: normal;
+                text-align: left;
             }
             
             .trust-badges {
@@ -427,6 +433,25 @@
             .top-bar {
                 flex-direction: column;
                 gap: 1rem;
+            }
+            
+            .features-list {
+                gap: 0.75rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .feature-item {
+                justify-content: flex-start;
+                text-align: left;
+                padding: 0.75rem;
+                background: #f8fafc;
+                border-radius: 8px;
+            }
+            
+            .feature-text {
+                font-size: 0.85rem;
+                white-space: normal;
             }
         }
     </style>
