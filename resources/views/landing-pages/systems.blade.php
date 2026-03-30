@@ -360,6 +360,114 @@
             display: none;
         }
         
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+        
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, 0.4);
+            animation: whatsappRipple 2s ease-out infinite;
+            z-index: -1;
+        }
+        
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, 0.3);
+            animation: whatsappRipple 2s ease-out infinite 1s;
+            z-index: -1;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+            animation: whatsappBounce 0.6s ease-in-out;
+        }
+        
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            animation: whatsappIconShake 3s ease-in-out infinite;
+        }
+        
+        @keyframes whatsappPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes whatsappRipple {
+            0% {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+            }
+            100% {
+                width: 200%;
+                height: 200%;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes whatsappBounce {
+            0%, 100% {
+                transform: scale(1.15);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+        }
+        
+        @keyframes whatsappIconShake {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            10%, 30% {
+                transform: rotate(-10deg);
+            }
+            20%, 40% {
+                transform: rotate(10deg);
+            }
+            50%, 90% {
+                transform: rotate(0deg);
+            }
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
@@ -415,6 +523,19 @@
                 padding: 0.4rem 0.75rem;
                 font-size: 0.85rem;
             }
+            
+            /* WhatsApp Float */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -464,8 +585,8 @@
             </div>
             
             <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
-                <button class="lang-btn" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+                <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
                 <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">AR</button>
             </div>
         </div>
@@ -492,7 +613,7 @@
                             <span data-en="Your Name" data-fr="Votre Nom" data-ar="اسمك">Your Name</span>
                             <span class="required">*</span>
                         </label>
-                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     
                     <div class="form-group">
@@ -566,12 +687,19 @@
         </div>
     </div>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/{{ $whatsappPhone }}?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener noreferrer">
+        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
     <script>
         let currentLang = 'en';
         
         const translations = {
             en: {
-                namePlaceholder: 'John Smith',
+                namePlaceholder: 'Your Name',
                 phonePlaceholder: '+212 6 12 34 56 78',
                 projectPlaceholder: 'Tell us about your system requirements and what you want to build...',
                 submitting: 'Submitting...',
@@ -581,7 +709,7 @@
                 networkError: 'Unable to submit. Please check your connection and try again.'
             },
             fr: {
-                namePlaceholder: 'Jean Dupont',
+                namePlaceholder: 'Votre Nom',
                 phonePlaceholder: '+212 6 12 34 56 78',
                 projectPlaceholder: 'Parlez-nous de vos besoins système et de ce que vous voulez construire...',
                 submitting: 'Envoi en cours...',
@@ -591,7 +719,7 @@
                 networkError: 'Impossible d\'envoyer. Veuillez vérifier votre connexion et réessayer.'
             },
             ar: {
-                namePlaceholder: 'أحمد محمد',
+                namePlaceholder: 'اسمك',
                 phonePlaceholder: '+212 6 12 34 56 78',
                 projectPlaceholder: 'أخبرنا عن متطلبات نظامك وما تريد بناءه...',
                 submitting: 'جاري الإرسال...',
@@ -634,6 +762,20 @@
             document.getElementById('name').placeholder = translations[lang].namePlaceholder;
             document.getElementById('phone').placeholder = translations[lang].phonePlaceholder;
             document.getElementById('project_idea').placeholder = translations[lang].projectPlaceholder;
+            
+            // Update WhatsApp floating button
+            const whatsappMessages = {
+                en: 'Hello%2C%20I%20would%20like%20to%20discuss%20a%20project',
+                fr: 'Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet',
+                ar: 'مرحباً%2C%20أريد%20مناقشة%20مشروع'
+            };
+            
+            const floatingBtn = document.getElementById('whatsappFloat');
+            if (floatingBtn) {
+                const currentHref = floatingBtn.getAttribute('href');
+                const baseUrl = currentHref.split('?')[0];
+                floatingBtn.setAttribute('href', baseUrl + '?text=' + whatsappMessages[lang]);
+            }
         }
         
         document.addEventListener('DOMContentLoaded', function() {
@@ -642,8 +784,8 @@
             const submitBtn = leadForm.querySelector('.btn-submit');
             const btnText = submitBtn.querySelector('.btn-text');
             
-            // Initialize with English
-            switchLanguage('en');
+            // Initialize with French
+            switchLanguage('fr');
             
             leadForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
