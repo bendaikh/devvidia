@@ -91,7 +91,7 @@
                     <input type="text" id="tiktok_pixel_id" name="tiktok_pixel_id" value="{{ old('tiktok_pixel_id') }}" 
                            placeholder="e.g., D70POC3C77UF6QH5QF80" 
                            style="flex: 1; font-family: monospace;">
-                    <button type="button" id="paste-pixel-btn" 
+                    <button type="button" id="paste-tiktok-btn" 
                             style="padding: 0.75rem 1rem; background: #42b883; color: white; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; transition: all 0.2s;"
                             onmouseover="this.style.background='#3aa876'" 
                             onmouseout="this.style.background='#42b883'">
@@ -109,7 +109,35 @@
                     <small style="color: #e74c3c; display: block;">{{ $message }}</small>
                 @enderror
                 
-                <div id="pixel-status" style="margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; display: none;">
+                <div id="tiktok-pixel-status" style="margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; display: none;">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0; margin-top: 1.5rem;">
+                <label for="facebook_pixel_id">Facebook Pixel ID</label>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="text" id="facebook_pixel_id" name="facebook_pixel_id" value="{{ old('facebook_pixel_id') }}" 
+                           placeholder="e.g., 1234567890123456" 
+                           style="flex: 1; font-family: monospace;">
+                    <button type="button" id="paste-facebook-btn" 
+                            style="padding: 0.75rem 1rem; background: #1877f2; color: white; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; transition: all 0.2s;"
+                            onmouseover="this.style.background='#166fe5'" 
+                            onmouseout="this.style.background='#1877f2'">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Paste
+                    </button>
+                </div>
+                <small style="color: #64748b; display: block; margin-top: 0.5rem;">
+                    Find your Pixel ID in <a href="https://business.facebook.com/events_manager2" target="_blank" style="color: #1877f2;">Meta Events Manager</a> → Data Sources → Pixels → Settings
+                </small>
+                @error('facebook_pixel_id')
+                    <small style="color: #e74c3c; display: block;">{{ $message }}</small>
+                @enderror
+                
+                <div id="facebook-pixel-status" style="margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; display: none;">
                 </div>
             </div>
         </div>
@@ -144,55 +172,89 @@
     });
     
     // Paste button for TikTok Pixel ID
-    const pasteBtn = document.getElementById('paste-pixel-btn');
-    const pixelInput = document.getElementById('tiktok_pixel_id');
-    const pixelStatus = document.getElementById('pixel-status');
+    const pasteTikTokBtn = document.getElementById('paste-tiktok-btn');
+    const tiktokPixelInput = document.getElementById('tiktok_pixel_id');
+    const tiktokPixelStatus = document.getElementById('tiktok-pixel-status');
     
-    pasteBtn.addEventListener('click', async function() {
+    pasteTikTokBtn.addEventListener('click', async function() {
         try {
             const text = await navigator.clipboard.readText();
-            pixelInput.value = text.trim();
-            validatePixelId(text.trim());
+            tiktokPixelInput.value = text.trim();
+            validateTikTokPixelId(text.trim());
         } catch (err) {
-            showPixelStatus('Unable to paste. Please paste manually (Ctrl+V)', 'error');
+            showPixelStatus(tiktokPixelStatus, 'Unable to paste. Please paste manually (Ctrl+V)', 'error');
         }
     });
     
-    pixelInput.addEventListener('input', function() {
+    tiktokPixelInput.addEventListener('input', function() {
         if (this.value.trim()) {
-            validatePixelId(this.value.trim());
+            validateTikTokPixelId(this.value.trim());
         } else {
-            pixelStatus.style.display = 'none';
+            tiktokPixelStatus.style.display = 'none';
         }
     });
     
-    function validatePixelId(pixelId) {
+    function validateTikTokPixelId(pixelId) {
         // TikTok Pixel IDs are typically alphanumeric, 20 characters
         const isValidFormat = /^[A-Z0-9]{15,25}$/i.test(pixelId);
         
         if (isValidFormat) {
-            showPixelStatus('✓ Valid TikTok Pixel ID format. The pixel will be activated when you save.', 'success');
+            showPixelStatus(tiktokPixelStatus, '✓ Valid TikTok Pixel ID format. The pixel will be activated when you save.', 'success');
         } else {
-            showPixelStatus('⚠ This doesn\'t look like a valid TikTok Pixel ID. Please check and try again.', 'warning');
+            showPixelStatus(tiktokPixelStatus, '⚠ This doesn\'t look like a valid TikTok Pixel ID. Please check and try again.', 'warning');
         }
     }
     
-    function showPixelStatus(message, type) {
-        pixelStatus.style.display = 'block';
-        pixelStatus.textContent = message;
+    // Paste button for Facebook Pixel ID
+    const pasteFacebookBtn = document.getElementById('paste-facebook-btn');
+    const facebookPixelInput = document.getElementById('facebook_pixel_id');
+    const facebookPixelStatus = document.getElementById('facebook-pixel-status');
+    
+    pasteFacebookBtn.addEventListener('click', async function() {
+        try {
+            const text = await navigator.clipboard.readText();
+            facebookPixelInput.value = text.trim();
+            validateFacebookPixelId(text.trim());
+        } catch (err) {
+            showPixelStatus(facebookPixelStatus, 'Unable to paste. Please paste manually (Ctrl+V)', 'error');
+        }
+    });
+    
+    facebookPixelInput.addEventListener('input', function() {
+        if (this.value.trim()) {
+            validateFacebookPixelId(this.value.trim());
+        } else {
+            facebookPixelStatus.style.display = 'none';
+        }
+    });
+    
+    function validateFacebookPixelId(pixelId) {
+        // Facebook Pixel IDs are typically 15-16 digit numbers
+        const isValidFormat = /^[0-9]{15,16}$/i.test(pixelId);
+        
+        if (isValidFormat) {
+            showPixelStatus(facebookPixelStatus, '✓ Valid Facebook Pixel ID format. The pixel will be activated when you save.', 'success');
+        } else {
+            showPixelStatus(facebookPixelStatus, '⚠ This doesn\'t look like a valid Facebook Pixel ID. Please check and try again.', 'warning');
+        }
+    }
+    
+    function showPixelStatus(statusElement, message, type) {
+        statusElement.style.display = 'block';
+        statusElement.textContent = message;
         
         if (type === 'success') {
-            pixelStatus.style.background = '#d1fae5';
-            pixelStatus.style.color = '#065f46';
-            pixelStatus.style.border = '1px solid #42b883';
+            statusElement.style.background = '#d1fae5';
+            statusElement.style.color = '#065f46';
+            statusElement.style.border = '1px solid #42b883';
         } else if (type === 'error') {
-            pixelStatus.style.background = '#fee2e2';
-            pixelStatus.style.color = '#991b1b';
-            pixelStatus.style.border = '1px solid #ef4444';
+            statusElement.style.background = '#fee2e2';
+            statusElement.style.color = '#991b1b';
+            statusElement.style.border = '1px solid #ef4444';
         } else if (type === 'warning') {
-            pixelStatus.style.background = '#fef3c7';
-            pixelStatus.style.color = '#92400e';
-            pixelStatus.style.border = '1px solid #f59e0b';
+            statusElement.style.background = '#fef3c7';
+            statusElement.style.color = '#92400e';
+            statusElement.style.border = '1px solid #f59e0b';
         }
     }
 </script>

@@ -28,6 +28,7 @@ class LandingSystemController extends Controller
             'description' => 'nullable|string',
             'template' => 'required|string',
             'tiktok_pixel_id' => 'nullable|string|max:50',
+            'facebook_pixel_id' => 'nullable|string|max:50',
         ]);
 
         $validated['is_active'] = $request->has('is_active');
@@ -35,10 +36,12 @@ class LandingSystemController extends Controller
         // Build settings JSON
         $validated['settings'] = [
             'tiktok_pixel_id' => $request->input('tiktok_pixel_id'),
+            'facebook_pixel_id' => $request->input('facebook_pixel_id'),
         ];
         
-        // Remove tiktok_pixel_id from validated as it's now in settings
+        // Remove pixel IDs from validated as they're now in settings
         unset($validated['tiktok_pixel_id']);
+        unset($validated['facebook_pixel_id']);
 
         LandingPage::create($validated);
 
@@ -59,18 +62,21 @@ class LandingSystemController extends Controller
             'description' => 'nullable|string',
             'template' => 'required|string',
             'tiktok_pixel_id' => 'nullable|string|max:50',
+            'facebook_pixel_id' => 'nullable|string|max:50',
         ]);
 
         $validated['is_active'] = $request->has('is_active');
         
-        // Merge with existing settings and update TikTok Pixel ID
+        // Merge with existing settings and update Pixel IDs
         $existingSettings = $landingSystem->settings ?? [];
         $validated['settings'] = array_merge($existingSettings, [
             'tiktok_pixel_id' => $request->input('tiktok_pixel_id'),
+            'facebook_pixel_id' => $request->input('facebook_pixel_id'),
         ]);
         
-        // Remove tiktok_pixel_id from validated as it's now in settings
+        // Remove pixel IDs from validated as they're now in settings
         unset($validated['tiktok_pixel_id']);
+        unset($validated['facebook_pixel_id']);
 
         $landingSystem->update($validated);
 
