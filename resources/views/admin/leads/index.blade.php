@@ -3,8 +3,9 @@
 @section('title', 'Lead Submissions')
 
 @section('content')
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-    <h1 class="page-title">Lead Submissions</h1>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+    <h1 class="page-title" style="margin-bottom: 0;">Lead Submissions</h1>
+    <a href="{{ route('admin.leads.export') }}" class="btn btn-success">Export Excel</a>
 </div>
 
 @if(session('success'))
@@ -71,9 +72,7 @@
             @endforelse
         </tbody>
     </table>
-    
-    <div style="margin-top: 1.5rem;">
-        {{ $leads->links() }}
-    </div>
+
+    {{ $leads->links() }}
 </div>
 @endsection

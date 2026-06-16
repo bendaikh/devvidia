@@ -56,6 +56,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/contacts/{contactSubmission}', [ContactSubmissionController::class, 'destroy'])->name('contacts.destroy');
         
         // Lead Submissions (from landing pages)
+        Route::get('/lead-submissions/export', [App\Http\Controllers\Admin\LeadSubmissionController::class, 'export'])->name('leads.export');
         Route::get('/lead-submissions', [App\Http\Controllers\Admin\LeadSubmissionController::class, 'index'])->name('leads.index');
         Route::get('/lead-submissions/{lead}', [App\Http\Controllers\Admin\LeadSubmissionController::class, 'show'])->name('leads.show');
         Route::patch('/lead-submissions/{lead}/status', [App\Http\Controllers\Admin\LeadSubmissionController::class, 'updateStatus'])->name('leads.update-status');
