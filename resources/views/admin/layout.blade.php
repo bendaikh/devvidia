@@ -239,29 +239,51 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
+
+        select.status-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: none;
+            cursor: pointer;
+            padding-right: 1.5rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            outline: none;
+            font: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        select.status-select option {
+            background: #fff;
+            color: #1e293b;
+        }
         
         .badge-new {
-            background: #3498db;
+            background-color: #3498db;
             color: white;
         }
         
         .badge-contacted {
-            background: #f39c12;
+            background-color: #f39c12;
             color: white;
         }
         
         .badge-qualified {
-            background: #9b59b6;
+            background-color: #9b59b6;
             color: white;
         }
         
         .badge-converted {
-            background: #27ae60;
+            background-color: #27ae60;
             color: white;
         }
         
         .badge-lost {
-            background: #e74c3c;
+            background-color: #e74c3c;
             color: white;
         }
         

@@ -35,6 +35,29 @@ class LeadSubmissionController extends Controller
         return redirect()->back()->with('success', 'Lead status updated successfully!');
     }
 
+    public function bulk(Request $request)
+    {
+        $validated = $request->validate([
+            'ids' => 'required|array|min:1',
+            'ids.*' => 'integer|exists:lead_submissions,id',
+            'action' => 'required|in:update_status,delete',
+            'status' => 'required_if:action,update_status|nullable|in:new,contacted,qualified,converted,lost',
+        ]);
+
+        $query = LeadSubmission::whereIn('id', $validated['ids']);
+        $count = $query->count();
+
+        if ($validated['action'] === 'delete') {
+            $query->delete();
+
+            return redirect()->back()->with('success', $count.' lead(s) deleted successfully!');
+        }
+
+        $query->update(['status' => $validated['status']]);
+
+        return redirect()->back()->with('success', $count.' lead(s) updated to '.ucfirst($validated['status']).'!');
+    }
+
     public function destroy(LeadSubmission $lead)
     {
         $lead->delete();
