@@ -29,7 +29,7 @@
     <meta property="og:locale" content="{{ $L('meta.og_locale') }}">
     @if($projects->first()?->image_path)<meta property="og:image" content="{{ asset('storage/' . $projects->first()->image_path) }}">@endif
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#0B1B3F">
+    <meta name="theme-color" content="#05070D">
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600&family=inter-tight:500,600,700&family=jetbrains-mono:400,500&display=swap" rel="stylesheet">
@@ -107,7 +107,7 @@
                                     <div class="panel-h">{{ $L('hero.chart') }}</div>
                                     <svg class="line" viewBox="0 0 300 110" preserveAspectRatio="none">
                                         <defs><linearGradient id="ga" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2563FF" stop-opacity=".22"/><stop offset="1" stop-color="#2563FF" stop-opacity="0"/></linearGradient></defs>
-                                        <g stroke="#E6EBF5" stroke-width="1"><line x1="0" y1="27" x2="300" y2="27"/><line x1="0" y1="55" x2="300" y2="55"/><line x1="0" y1="83" x2="300" y2="83"/></g>
+                                        <g stroke-width="1"><line x1="0" y1="27" x2="300" y2="27"/><line x1="0" y1="55" x2="300" y2="55"/><line x1="0" y1="83" x2="300" y2="83"/></g>
                                         <path d="M0 88 L33 80 L66 84 L100 66 L133 70 L166 52 L200 58 L233 38 L266 42 L300 20 L300 110 L0 110Z" fill="url(#ga)"/>
                                         <path class="draw" d="M0 88 L33 80 L66 84 L100 66 L133 70 L166 52 L200 58 L233 38 L266 42 L300 20" fill="none" stroke="#2563FF" stroke-width="2.2" stroke-linejoin="round"/>
                                         <path d="M0 96 L33 92 L66 94 L100 86 L133 88 L166 78 L200 82 L233 70 L266 74 L300 62" fill="none" stroke="#7C5CFF" stroke-width="1.5" stroke-dasharray="3 3" opacity=".7"/>
