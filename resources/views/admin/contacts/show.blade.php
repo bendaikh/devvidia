@@ -16,6 +16,24 @@
         <strong>Phone:</strong> {{ $contactSubmission->phone }}
     </div>
     
+    @if($contactSubmission->email)
+    <div style="margin-bottom: 1.5rem;">
+        <strong>Email:</strong> <a href="mailto:{{ $contactSubmission->email }}">{{ $contactSubmission->email }}</a>
+    </div>
+    @endif
+
+    @if($contactSubmission->project_type)
+    <div style="margin-bottom: 1.5rem;">
+        <strong>Project type:</strong> {{ $contactSubmission->project_type }}
+    </div>
+    @endif
+
+    @if($contactSubmission->budget)
+    <div style="margin-bottom: 1.5rem;">
+        <strong>Budget:</strong> {{ $contactSubmission->budget }}
+    </div>
+    @endif
+
     <div style="margin-bottom: 1.5rem;">
         <strong>Date:</strong> {{ $contactSubmission->created_at->format('F d, Y H:i') }}
     </div>
