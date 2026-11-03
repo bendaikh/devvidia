@@ -33,7 +33,7 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600&family=inter-tight:500,600,700&family=jetbrains-mono:400,500&display=swap" rel="stylesheet">
-    <script type="application/ld+json">{!! json_encode(['@context' => 'https://schema.org', '@type' => 'Organization', 'name' => 'Devvidia', 'legalName' => 'DEVVIDIA LLC', 'url' => url('/'), 'email' => 'support@devvidia.com', 'description' => $L('meta.description'), 'address' => ['@type' => 'PostalAddress', 'streetAddress' => '127 N Higgins Ave Ste 307D #2711', 'addressLocality' => 'Missoula', 'addressRegion' => 'MT', 'postalCode' => '59802-4486', 'addressCountry' => 'US']] + ($waDigits ? ['telephone' => '+' . $waDigits] : []), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
+    <script type="application/ld+json">{!! json_encode(["\x40context" => 'https://schema.org', '@type' => 'Organization', 'name' => 'Devvidia', 'legalName' => 'DEVVIDIA LLC', 'url' => url('/'), 'email' => 'support@devvidia.com', 'description' => $L('meta.description'), 'address' => ['@type' => 'PostalAddress', 'streetAddress' => '127 N Higgins Ave Ste 307D #2711', 'addressLocality' => 'Missoula', 'addressRegion' => 'MT', 'postalCode' => '59802-4486', 'addressCountry' => 'US']] + ($waDigits ? ['telephone' => '+' . $waDigits] : []), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
     @include('landing.partials.styles')
 </head>
 <body>
