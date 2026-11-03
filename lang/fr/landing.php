@@ -4,8 +4,8 @@
 
 return [
     'meta' => [
-        'title' => 'Devvidia — Studio de développement logiciel sur mesure à Agadir, Maroc',
-        'description' => 'Devvidia conçoit des applications web, des plateformes métier, des sites e-commerce et des logiciels de gestion sur mesure pour les entreprises au Maroc et à l\'international.',
+        'title' => 'Devvidia — Studio de développement logiciel sur mesure',
+        'description' => 'Devvidia conçoit des applications web, des plateformes métier, des sites e-commerce et des logiciels de gestion sur mesure pour des clients dans le monde entier.',
         'og_locale' => 'fr_FR',
     ],
     'nav' => [
@@ -42,7 +42,7 @@ return [
         'desc' => 'Devvidia conçoit des applications web, des plateformes métier et des logiciels de gestion adaptés à vos besoins. Nous transformons vos idées en solutions digitales utiles, performantes et évolutives.',
         'cta1' => 'Parlons de votre projet',
         'cta2' => 'Explorer nos expertises',
-        'location' => 'Agadir, Maroc · Projets au Maroc et à l\'international',
+        'location' => 'DEVVIDIA LLC · Une société américaine au service de clients dans le monde entier',
         'dash_label' => 'Aperçu d\'un tableau de bord de gestion (démonstration)',
         'nav' => [
             'Tableau de bord',
@@ -932,8 +932,8 @@ return [
         'eyebrow' => 'CONTACT',
         'title' => 'Parlons de votre projet.',
         'desc' => 'Expliquez-nous votre besoin. Nous échangerons sur vos objectifs et les solutions possibles.',
-        'location' => 'Agadir, Maroc',
-        'location_sub' => 'Projets au Maroc et à l\'international',
+        'location' => 'DEVVIDIA LLC, 127 N Higgins Ave Ste 307D #2711, Missoula, MT 59802-4486, USA',
+        'location_sub' => 'Une société américaine au service de clients dans le monde entier',
         'wa_label' => 'WhatsApp',
         'wa_sub' => 'Réponse directe sur WhatsApp',
         'name' => 'Nom complet',
@@ -980,14 +980,14 @@ return [
         'wa_text' => 'Bonjour Devvidia, je souhaite discuter d\'un projet.',
     ],
     'footer' => [
-        'intro' => 'Studio de développement logiciel à Agadir. Nous concevons des applications web, des plateformes métier et des logiciels de gestion pour les entreprises au Maroc et à l\'international.',
+        'intro' => 'DEVVIDIA LLC est une société américaine de développement logiciel au service de clients dans le monde entier. Nous concevons des applications web, des plateformes métier et des logiciels de gestion.',
         'services' => 'Services',
         'solutions' => 'Solutions',
         'company' => 'Entreprise',
         'contact' => 'Contact',
         'rights' => 'Tous droits réservés.',
         'top' => 'Haut de page',
-        'legal_note' => 'Agadir, Maroc',
+        'legal_note' => 'Missoula, MT, USA',
     ],
     'validation' => [
         'project_type' => 'Choisissez un type de projet valide.',

@@ -33,38 +33,14 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600&family=inter-tight:500,600,700&family=jetbrains-mono:400,500&display=swap" rel="stylesheet">
-    <script type="application/ld+json">{!! json_encode(['@context' => 'https://schema.org', '@type' => 'Organization', 'name' => 'Devvidia', 'url' => url('/'), 'description' => $L('meta.description'), 'address' => ['@type' => 'PostalAddress', 'addressLocality' => 'Agadir', 'addressCountry' => 'MA']] + ($waDigits ? ['telephone' => '+' . $waDigits] : []), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
+    <script type="application/ld+json">{!! json_encode(['@context' => 'https://schema.org', '@type' => 'Organization', 'name' => 'Devvidia', 'legalName' => 'DEVVIDIA LLC', 'url' => url('/'), 'email' => 'support@devvidia.com', 'description' => $L('meta.description'), 'address' => ['@type' => 'PostalAddress', 'streetAddress' => '127 N Higgins Ave Ste 307D #2711', 'addressLocality' => 'Missoula', 'addressRegion' => 'MT', 'postalCode' => '59802-4486', 'addressCountry' => 'US']] + ($waDigits ? ['telephone' => '+' . $waDigits] : []), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
     @include('landing.partials.styles')
 </head>
 <body>
 <a class="skip" href="#main">{{ $L('nav.skip') }}</a>
 
 {{-- ============ HEADER ============ --}}
-<header class="site-header" id="top">
-    <div class="wrap header-in">
-        <a href="#top" class="logo" aria-label="{{ $L('nav.home') }}">{!! $wordmark !!}<span>Devvidia</span></a>
-        <nav class="main-nav" id="mainNav" aria-label="Navigation">
-            <ul>
-                <li><a href="#services">{{ $L('nav.services') }}</a></li>
-                <li><a href="#solutions">{{ $L('nav.solutions') }}</a></li>
-                <li><a href="#realisations">{{ $L('nav.work') }}</a></li>
-                <li><a href="#approche">{{ $L('nav.approach') }}</a></li>
-                <li><a href="#faq">{{ $L('nav.faq') }}</a></li>
-            </ul>
-            <div class="nav-mobile-extra">
-                <a href="#contact" class="btn btn-primary">{{ $L('nav.cta') }} {!! $arrow !!}</a>
-            </div>
-        </nav>
-        <div class="header-actions">
-            <div class="lang" role="group" aria-label="{{ $L('nav.lang') }}">
-                <a href="?lang=fr" hreflang="fr" lang="fr" @if($locale==='fr') aria-current="true" class="on" @endif>FR</a>
-                <a href="?lang=en" hreflang="en" lang="en" @if($locale==='en') aria-current="true" class="on" @endif>EN</a>
-            </div>
-            <a href="#contact" class="btn btn-primary btn-sm hide-sm">{{ $L('nav.cta') }}</a>
-            <button class="burger" type="button" aria-expanded="false" aria-controls="mainNav" data-open="{{ $L('nav.open') }}" data-close="{{ $L('nav.close') }}" aria-label="{{ $L('nav.open') }}"><span></span><span></span></button>
-        </div>
-    </div>
-</header>
+@include('landing.partials.header')
 
 <main id="main">
 {{-- ============ HERO ============ --}}
@@ -317,6 +293,7 @@
             <p class="sub">{{ $L('contact.desc') }}</p>
             <ul class="c-info">
                 <li><span class="c-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b>{{ $L('contact.location') }}</b><small>{{ $L('contact.location_sub') }}</small></div></li>
+                <li><span class="c-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b><a href="mailto:support@devvidia.com">support@devvidia.com</a></b><small>Email</small></div></li>
                 @if($waDigits)
                 <li><span class="c-ico" aria-hidden="true">{!! $waIcon !!}</span><div><b><a href="{{ $waLink($L('contact.wa_text')) }}" target="_blank" rel="noopener">{{ $whatsappPhone }}</a></b><small>{{ $L('contact.wa_sub') }}</small></div></li>
                 @endif
@@ -350,23 +327,7 @@
 </main>
 
 {{-- ============ FOOTER ============ --}}
-<footer class="footer">
-    <div class="wrap foot-grid">
-        <div class="foot-brand">
-            <a href="#top" class="logo logo-light" aria-label="{{ $L('nav.home') }}">{!! $wordmark !!}<span>Devvidia</span></a>
-            <p>{{ $L('footer.intro') }}</p>
-        </div>
-        <nav aria-label="{{ $L('footer.services') }}"><h3>{{ $L('footer.services') }}</h3><ul>@foreach($L('exp.items') as $it)<li><a href="{{ $it[2] }}">{{ $it[0] }}</a></li>@endforeach</ul></nav>
-        <nav aria-label="{{ $L('footer.solutions') }}"><h3>{{ $L('footer.solutions') }}</h3><ul>@foreach($L('sol.tabs') as $i => $t)<li><a href="#solutions" data-tab="{{ $i }}">{{ $t['name'] }}</a></li>@endforeach</ul></nav>
-        <nav aria-label="{{ $L('footer.company') }}"><h3>{{ $L('footer.company') }}</h3><ul><li><a href="#approche">{{ $L('nav.approach') }}</a></li><li><a href="#realisations">{{ $L('nav.work') }}</a></li><li><a href="#faq">{{ $L('nav.faq') }}</a></li><li><a href="#contact">{{ $L('nav.cta') }}</a></li></ul></nav>
-        <div><h3>{{ $L('footer.contact') }}</h3><ul class="foot-contact"><li>{{ $L('contact.location') }}</li>@if($waDigits)<li><a href="{{ $waLink($L('contact.wa_text')) }}" target="_blank" rel="noopener">WhatsApp · {{ $whatsappPhone }}</a></li>@endif</ul></div>
-    </div>
-    <div class="wrap foot-bottom">
-        <p>&copy; {{ date('Y') }} Devvidia. {{ $L('footer.rights') }}</p>
-        @include('landing.partials.legal-links')
-        <a href="#top">{{ $L('footer.top') }} ↑</a>
-    </div>
-</footer>
+@include('landing.partials.footer')
 
 @if($waDigits)<a class="wa-float" href="{{ $waLink($L('contact.wa_text')) }}" target="_blank" rel="noopener" aria-label="{{ $L('contact.wa_btn') }}">{!! $waIcon !!}</a>@endif
 

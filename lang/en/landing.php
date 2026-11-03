@@ -4,8 +4,8 @@
 
 return [
     'meta' => [
-        'title' => 'Devvidia — Custom software development studio in Agadir, Morocco',
-        'description' => 'Devvidia designs web applications, business platforms, e-commerce websites and custom management software for companies in Morocco and internationally.',
+        'title' => 'Devvidia — Custom software development studio',
+        'description' => 'Devvidia designs web applications, business platforms, e-commerce websites and custom management software for clients worldwide.',
         'og_locale' => 'en_US',
     ],
     'nav' => [
@@ -42,7 +42,7 @@ return [
         'desc' => 'Devvidia designs web applications, business platforms and management software tailored to your needs. We turn your ideas into useful, high-performing and scalable digital solutions.',
         'cta1' => 'Let\'s talk about your project',
         'cta2' => 'Explore our expertise',
-        'location' => 'Agadir, Morocco · Projects in Morocco and internationally',
+        'location' => 'DEVVIDIA LLC · A US company serving clients worldwide',
         'dash_label' => 'Preview of a management dashboard (demo)',
         'nav' => [
             'Dashboard',
@@ -932,8 +932,8 @@ return [
         'eyebrow' => 'CONTACT',
         'title' => 'Let\'s talk about your project.',
         'desc' => 'Tell us what you need. We\'ll discuss your goals and the possible solutions.',
-        'location' => 'Agadir, Morocco',
-        'location_sub' => 'Projects in Morocco and internationally',
+        'location' => 'DEVVIDIA LLC, 127 N Higgins Ave Ste 307D #2711, Missoula, MT 59802-4486, USA',
+        'location_sub' => 'A US company serving clients worldwide',
         'wa_label' => 'WhatsApp',
         'wa_sub' => 'Direct reply on WhatsApp',
         'name' => 'Full name',
@@ -980,14 +980,14 @@ return [
         'wa_text' => 'Hello Devvidia, I\'d like to discuss a project.',
     ],
     'footer' => [
-        'intro' => 'Software development studio in Agadir. We design web applications, business platforms and management software for companies in Morocco and internationally.',
+        'intro' => 'DEVVIDIA LLC is a US software development company serving clients worldwide. We design web applications, business platforms and management software.',
         'services' => 'Services',
         'solutions' => 'Solutions',
         'company' => 'Company',
         'contact' => 'Contact',
         'rights' => 'All rights reserved.',
         'top' => 'Back to top',
-        'legal_note' => 'Agadir, Morocco',
+        'legal_note' => 'Missoula, MT, USA',
     ],
     'validation' => [
         'project_type' => 'Choose a valid project type.',
