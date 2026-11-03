@@ -363,6 +363,7 @@
     </div>
     <div class="wrap foot-bottom">
         <p>&copy; {{ date('Y') }} Devvidia. {{ $L('footer.rights') }}</p>
+        @include('landing.partials.legal-links')
         <a href="#top">{{ $L('footer.top') }} ↑</a>
     </div>
 </footer>

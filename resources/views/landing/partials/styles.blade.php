@@ -320,6 +320,20 @@ td.mono{font-size:10px;color:var(--muted)}
 .footer ul a:hover{color:#fff}
 .foot-bottom{display:flex;justify-content:space-between;gap:16px;border-top:1px solid #1E2F5A;padding-top:22px;padding-bottom:26px;font-size:13px}
 .foot-bottom a:hover{color:#fff}
+.foot-legal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.legal-main{padding:calc(var(--hh) + 64px) 0 96px}
+.legal-doc{max-width:820px}
+.legal-doc h1{font-size:clamp(34px,5vw,52px);margin-bottom:10px}
+.legal-doc .updated{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-bottom:40px}
+.legal-doc h2{font-size:22px;margin:40px 0 12px}
+.legal-doc p,.legal-doc li{color:var(--text)}
+.legal-doc ul{padding-left:20px;list-style:disc;display:grid;gap:6px;margin:0 0 16px}
+.legal-doc a{color:var(--blue)}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:32px 0 48px}
+.price-card{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:var(--tint)}
+.price-card h2{margin:0 0 8px;font-size:19px}
+.price-card .amt{font-family:var(--f-mono);font-size:13px;color:var(--blue);margin-top:14px}
+.legal-cta{border:1px solid var(--line);border-radius:var(--r);padding:32px;text-align:center}
 .wa-float{position:fixed;right:22px;bottom:22px;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -10px rgba(18,140,75,.6);z-index:40;transition:transform .2s}
 .wa-float svg{width:26px;height:26px}
 .wa-float:hover{transform:scale(1.06)}
