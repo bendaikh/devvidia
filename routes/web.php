@@ -13,6 +13,12 @@ use App\Http\Controllers\Admin\ContactSubmissionController;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::post('/contact', [LandingController::class, 'storeContact'])->name('contact.store');
 
+// Legal & pricing pages
+Route::view('/pricing', 'legal.pricing')->name('pricing');
+Route::view('/terms', 'legal.terms')->name('terms');
+Route::view('/privacy', 'legal.privacy')->name('privacy');
+Route::view('/refund', 'legal.refund')->name('refund');
+
 // Landing Pages
 Route::prefix('landing')->name('landing.')->group(function () {
     Route::get('/systems', [LandingPageController::class, 'systems'])->name('systems');

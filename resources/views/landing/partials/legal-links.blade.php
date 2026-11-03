@@ -1,0 +1,1 @@
+<nav class="foot-legal" aria-label="Legal"><a href="{{ url('/pricing') }}">Pricing</a><a href="{{ url('/terms') }}">Terms of Service</a><a href="{{ url('/privacy') }}">Privacy Policy</a><a href="{{ url('/refund') }}">Refund Policy</a></nav>
